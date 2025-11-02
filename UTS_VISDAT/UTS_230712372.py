@@ -2,11 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 st.set_page_config(page_title="Dashboard Penjualan 2022", layout="wide")
 st.title("Dashboard Penjualan 2022")
 
-df = pd.read_csv("DataVisdat.csv")
+df = pd.read_csv(os.path.join(os.path.dirname(__file__), "DataVisdat.csv"))
 
 df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce')
 
@@ -97,4 +98,5 @@ elif page == "Mobile & Tablet Jazzwallet":
         - Disarankan memperkuat promosi berbasis metode pembayaran digital seperti Jazzwallet,  
           terutama pada kategori dengan kontribusi tertinggi.  
         - Analisis lebih lanjut bisa difokuskan pada pola waktu transaksi untuk optimasi campaign musiman.
+
         """)
